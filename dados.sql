@@ -4,7 +4,7 @@ USE predial;
 
 -- EMPRESAS
 CREATE TABLE empresa (
-	id_empresa INT PRIMARY KEY,
+	id INT AUTO_INCREMENT PRIMARY KEY,
 	rsocial VARCHAR(30) NOT NULL,
     cnpj CHAR(14)UNIQUE NOT NULL,
     conjunto INT NOT NULL,
