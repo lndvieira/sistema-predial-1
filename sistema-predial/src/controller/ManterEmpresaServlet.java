@@ -1,8 +1,8 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,8 +42,6 @@ public class ManterEmpresaServlet extends HttpServlet {
 	
 		EmpresaService service = new EmpresaService();
 		
-		PrintWriter out = response.getWriter();
-		
 		// CADASTRAR EMPRESA
 		if(acao.equals("Cadastrar")) {	
 			String rSocial = request.getParameter("rsocial");
@@ -62,9 +60,11 @@ public class ManterEmpresaServlet extends HttpServlet {
 			 
 			service.incluir(empresa);
 			
-			String html = "<!DOCTYPE html><html lang=\"pt-br\"><head><meta charset=\"UTF-8\"><title>Cadastrar Empresa</title></head><body><p>Empresa cadastrada com sucesso! <strong>ID: " + empresa.getId() +"</strong></p><br><br><a href=\"predial.html\"><button type=\"button\">Voltar</button></a></body></html>";
+			//enviar para o jsp
+			request.setAttribute("empresa", empresa);
 			
-			out.println(html);
+			RequestDispatcher view = request.getRequestDispatcher("Cadastrar.jsp");
+			view.forward(request, response);
 		}
 		
 		// ALTERAR EMPRESA
@@ -87,9 +87,11 @@ public class ManterEmpresaServlet extends HttpServlet {
 			
 			service.atualizar(empresa);
 			
-			String html = "<!DOCTYPE html><html lang=\"pt-br\"><head><meta charset=\"UTF-8\"><title>Alterar Empresa</title></head><body><p>Empresa alterada com sucesso!</p><table border=\"1\"><thead><th>ID:</th><th>Razão Social:</th><th>CNPJ:</th><th>Conjunto:</th><th>Temperatura:</th><th>Horário de Funcionamento:</th><th>Horário de Ar-Condicionado:</th></thead><tbody><tr><td>" + empresa.getId() + "</td><td>" + empresa.getRazaoSocial() + "</td><td>"+ empresa.getCnpj() +"</td><td>" + empresa.getConjunto() + "</td><td>" + empresa.getTemperatura() + "</td><td>" + empresa.getHoraFuncionamento() + "</td><td>" + empresa.getHoraArCondicionado() + "</td></tr></tbody></table><br><br><a href=\"predial.html\"><button type=\"button\">Voltar</button></a></body></html>";
+			//enviar para o jsp
+			request.setAttribute("empresa", empresa);
 			
-			out.println(html);
+			RequestDispatcher view = request.getRequestDispatcher("Alterar.jsp");
+			view.forward(request, response);
 		}
 		
 		// EXCLUIR EMPRESA
@@ -101,9 +103,11 @@ public class ManterEmpresaServlet extends HttpServlet {
 			
 			service.excluir(empresa);
 			
-			String html = "<!DOCTYPE html><html lang=\"pt-br\"><head><meta charset=\"UTF-8\"><title>Remover Empresa</title></head><body><p>Empresa removida com sucesso! <strong>ID: " + empresa.getId() +"</strong></p><br><br><a href=\"predial.html\"><button type=\"button\">Voltar</button></a></body></html>";
+			//enviar para o jsp
+			request.setAttribute("empresa", empresa);
 			
-			out.println(html);
+			RequestDispatcher view = request.getRequestDispatcher("Excluir.jsp");
+			view.forward(request, response);
 		}
 		
 		// CARREGAR EMPRESA
@@ -112,9 +116,11 @@ public class ManterEmpresaServlet extends HttpServlet {
 			
 			Empresa copia = service.carregar(id);
 			
-			String html = "<!DOCTYPE html><html lang=\"pt-br\"><head><meta charset=\"UTF-8\"><title>Carregar Empresa</title></head><body><p>Empresa carregada com sucesso!</p><table border=\"1\"><thead><th>ID:</th><th>Razão Social:</th><th>CNPJ:</th><th>Conjunto:</th><th>Temperatura:</th><th>Horário de Funcionamento:</th><th>Horário de Ar-Condicionado:</th></thead><tbody><tr><td>" + copia.getId() + "</td><td>" + copia.getRazaoSocial() + "</td><td>"+ copia.getCnpj() +"</td><td>" + copia.getConjunto() + "</td><td>" + copia.getTemperatura() + "</td><td>" + copia.getHoraFuncionamento() + "</td><td>" + copia.getHoraArCondicionado() + "</td></tr></tbody></table><br><br><a href=\"predial.html\"><button type=\"button\">Voltar</button></a></body></html>";
+			//enviar para o jsp
+			request.setAttribute("empresa", copia);
 			
-			out.println(html);
+			RequestDispatcher view = request.getRequestDispatcher("Carregar.jsp");
+			view.forward(request, response);
 		}
 	}
 }
