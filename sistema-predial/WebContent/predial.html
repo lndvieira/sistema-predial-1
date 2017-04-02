@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Manter Empresa</title>
+</head>
+<body>
+	<h1>Manter Empresa</h1>
+	
+	<form action="ManterEmpresaServlet.do" method="post" accept-charset="UTF-8" autocomplete="on">
+		<label for="id">ID:</label><br>
+		<input type="number" name="id" placeholder="Insira o ID" id="id" min="0"><br><br>
+		
+		<label for="rsocial">Razão Social:</label><br>
+		<input type="text" name="rsocial" placeholder="Insira a Razão Social" id="rsocial"><br><br>
+		
+		<label for="cnpj">CNPJ:</label><br>
+		<input type="text" name="cnpj" placeholder="Insira o CNPJ" id="cnpj"><br><br>
+		
+		<label for="conj">Conjunto:</label><br>
+		<input type="number" name="conj" placeholder="Insira o Conjunto" id="conj" min="0"><br><br>
+		
+		<label for="temp">Temperatura: </label><br>
+		<input type="number" name="temp" placeholder="Insira a Temperatura" id="temp"><br><br>
+		
+		<fieldset>
+			<legend>Horário de Funcionamento:</legend>
+			<input type="time" name="entradaFunc">-
+			<input type="time" name="saidaFunc">
+		</fieldset>
+		<br><br>
+		
+		<fieldset>
+			<legend>Horário de Ar-Condicionado:</legend><br>
+			<input type="time" name="entradaAr" id="entradaAr">-
+			<input type="time" name="saidaAr">
+		</fieldset>
+		<br><br>
+		
+		<input type="submit" value="Cadastrar" name="acao">
+		<input type="submit" value="Alterar" name="acao">
+		<input type="submit" value="Deletar" name="acao">
+		<input type="submit" value="Consultar" name="acao">
+	</form>
+</body>
+</html>

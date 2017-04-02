@@ -38,7 +38,6 @@ public class EmpresaDAO {
 			}
 			
 			System.out.println("Empresa cadastrada com sucesso!");
-			
 		} catch(SQLException e) {
 			e.printStackTrace();
 			System.out.println("Erro ao cadastrar empresa!");
