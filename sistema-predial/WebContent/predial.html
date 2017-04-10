@@ -2,45 +2,80 @@
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Manter Empresa</title>
+	
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Sistema Predial</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Inicio</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    
 	<h1>Manter Empresa</h1>
 	
-	<form action="ManterEmpresaServlet.do" method="post" accept-charset="UTF-8" autocomplete="on">
+	<form action="ManterEmpresaServlet.do" class="container theme-showcase" method="post" accept-charset="UTF-8" autocomplete="on">
 		<label for="id">ID:</label><br>
-		<input type="number" name="id" placeholder="Insira o ID" id="id" min="0"><br><br>
+		<input type="number" class="form-control" name="id" placeholder="Insira o ID" id="id" min="0"><br><br>
 		
 		<label for="rsocial">Razão Social:</label><br>
-		<input type="text" name="rsocial" placeholder="Insira a Razão Social" id="rsocial"><br><br>
+		<input type="text" class="form-control" name="rsocial" placeholder="Insira a Razão Social" id="rsocial"><br><br>
 		
 		<label for="cnpj">CNPJ:</label><br>
-		<input type="text" name="cnpj" placeholder="Insira o CNPJ" id="cnpj"><br><br>
+		<input type="text" class="form-control" name="cnpj" placeholder="Insira o CNPJ" id="cnpj"><br><br>
 		
 		<label for="conj">Conjunto:</label><br>
-		<input type="number" name="conj" placeholder="Insira o Conjunto" id="conj" min="0"><br><br>
+		<input type="number" class="form-control" name="conj" placeholder="Insira o Conjunto" id="conj" min="0"><br><br>
 		
 		<label for="temp">Temperatura: </label><br>
-		<input type="number" name="temp" placeholder="Insira a Temperatura" id="temp"><br><br>
+		<input type="number" class="form-control" name="temp" placeholder="Insira a Temperatura" id="temp"><br><br>
 		
 		<fieldset>
 			<legend>Horário de Funcionamento:</legend>
-			<input type="time" name="entradaFunc">-
-			<input type="time" name="saidaFunc">
+			<label for="entrada">Entrada</label>
+			<input type="time" class="form-control" name="entradaFunc">
+			<label for="entrada">Saida</label>
+			<input type="time" class="form-control" name="saidaFunc">
 		</fieldset>
 		<br><br>
 		
 		<fieldset>
 			<legend>Horário de Ar-Condicionado:</legend><br>
-			<input type="time" name="entradaAr" id="entradaAr">-
-			<input type="time" name="saidaAr">
+			<label for="entrada">Inicio</label>
+			<input type="time" class="form-control" name="entradaAr" id="entradaAr" >
+			<label for="entrada">Fim</label>
+			<input type="time" class="form-control" name="saidaAr">
 		</fieldset>
 		<br><br>
 		
-		<input type="submit" value="Cadastrar" name="acao">
-		<input type="submit" value="Alterar" name="acao">
-		<input type="submit" value="Deletar" name="acao">
-		<input type="submit" value="Consultar" name="acao">
+		<input type="submit" class="btn btn-success" value="Cadastrar" name="acao">
+		<input type="submit" class="btn btn-warning" value="Alterar" name="acao">
+		<input type="submit" class="btn btn-danger"  value="Deletar" name="acao">
+		<input type="submit" class="btn btn-info"    value="Consultar" name="acao">
+			
 	</form>
+	
+
+	<script src="js/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
